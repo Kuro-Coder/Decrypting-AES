@@ -8,6 +8,8 @@ Console.Write("Type your string data:");
 
 var cryptoData = Decrypting(Console.ReadLine());
 
+//test data for 123 : BPTaXsPRMyfXTNiPZU1jkw==
+
 Console.Write("Decrypting Data: ");
 Console.WriteLine(cryptoData);
 
@@ -23,11 +25,9 @@ static string Decrypting(string ciphertxt)
     using (var aes = new AesManaged())
     {
         byte[] IV = new byte[16];
-        byte[] Key = {
-                    0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08,
-                    0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16,
-                };
-        // Create a decryptor
+        byte[] Key = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16 };
+
+        
         ICryptoTransform decryptor = aes.CreateDecryptor(Key, IV);
         string plaintxt = "";
         // Create the streams used for decryption. 
